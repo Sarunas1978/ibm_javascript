@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EACV,WAAW,EAAE,MAAM;EACnB,QAAQ,EAAE,MAAM;EAChB,aAAa,EAAE,QAAQ;CAAG",
+    "sources": [
+        "singleCard.sass"
+    ],
+    "names": [],
+    "file": "singleCard.css"
+}

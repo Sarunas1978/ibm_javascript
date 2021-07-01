@@ -1,10 +1,9 @@
-import './App.css';
 import React from 'react';
-import './index.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'; 
 import Col from 'react-bootstrap/Col'; 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
+import CardShow from './CardShow.js';
 
 //  creating context for all data received
 export const dataReceived = React.createContext();
@@ -94,20 +93,20 @@ class App extends React.Component {
                 </Col>
              </Form.Row>
              <Form.Row className="d-flex justify-content-center m-3">
-                <Col sm={11} lg={11}>
+                <Col sm={12} lg={11}>
                   <Form.Group controlId="formBasicSearch">
                     <Form.Control onChange={this.handleChange} onKeyUp={this.handleOnKeyUp} type="text" placeholder="Enter your search"  maxLength="40"/>
                   </Form.Group>
                 </Col>
-                <Col sm={1} lg={1}>
-                  <Button variant="primary" type="submit">Search</Button>
+                <Col  className="align-self-start" sm={12} lg={1}>
+                  <Button className="w-100" variant="primary" type="submit">Search</Button>
                 </Col>
              </Form.Row>
         </Form>
-        {/* {this.state.result ? (
+        {this.state.result ? (
           <dataReceived.Provider value={this.state.result}>
-            <ImagesShow/>
-          </dataReceived.Provider>) :null} */}
+            <CardShow/>
+          </dataReceived.Provider>) :null}
       </div>
     );
   }
