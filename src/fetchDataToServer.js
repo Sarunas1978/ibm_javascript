@@ -7,8 +7,7 @@ let fetchDataToServer = function(type, value){
         "origin" :'http://localhost:3000',
         'Access-Control-Request-Method': 'POST'
         },
-        body: JSON.stringify
-        ({
+        body: JSON.stringify({
          [type]: value,
         })
     })
