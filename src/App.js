@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col'; 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import CardShow from './CardShow.js';
+import fetchDataToServer  from './fetchDataToServer';
 
 //  creating context for all data received
 export const dataReceived = React.createContext();
@@ -40,7 +41,9 @@ class App extends React.Component {
         
         let data=await fetch(`https://gnews.io/api/v4/search?q=${this.state.value}&token=67a8e3a3f72accabacf4f12acffc1e37`)
         .then(result => result.json())
-        
+
+        // sending search to server for loging
+        fetchDataToServer("search", this.state.value)
 
         if(data.articles!==undefined && data.articles.length>0){
           if(data.articles.length>this.state.imagesAreDisplayedPerBlock){
@@ -51,15 +54,15 @@ class App extends React.Component {
         } else {
           this.setState({outputErrorMessage: "Bad request or no results found. Please check the input!"})
         }
-        // console.log("DUOM1: ", this.state.result)
       } 
   }
   // On input change
   handleChange(e) {
-    // console.log("value: ", e.target.value," + ", this.state.value)
+
     if(App.checkForErrors(this.state.value).length===0){
       this.setState({inputError : false});
     }
+
     // if entered wrong symbol show error
     if(!e.target.value.match(alphanumeric_space))
     {
